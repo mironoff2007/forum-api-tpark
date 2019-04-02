@@ -20,7 +20,7 @@ public class MemoryDAOImpl implements DAO {
     }
 
     public void addBmiRecord(float bmi,String name, int weight, int height,long dateTimeStep){
-            bmiList.add(new Forum(bmi,name, weight,height, dateTimeStep));
+
     }
 
 

@@ -35,16 +35,24 @@ public class Forum {
 
     private String slugs;
 
-    //dimension is kg
     private String title;
 
-    //dimension is centimeter
     private String user;
 
+    public Forum(int posts, String slugs, String title, String user) {
+        this.posts = posts;
+        this.slugs = slugs;
+        this.title = title;
+        this.user = user;
+    }
 
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "Forum{" +
+                "posts=" + posts +
+                ", slugs='" + slugs + '\'' +
+                ", title='" + title + '\'' +
+                ", user='" + user + '\'' +
+                '}';
+    }
 }

@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionManager {
-    private static String url = "jdbc:postgresql://localhost:5432/postgres";
+    private static String url = "jdbc:postgresql://localhost:5432/forum-api";
     private static String driverName = "org.postgresql.Driver";
     private static String username = "admin";
     private static String password = "admin";

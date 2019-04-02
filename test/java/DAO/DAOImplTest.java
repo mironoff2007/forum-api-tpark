@@ -46,7 +46,7 @@ public class DAOImplTest {
         TableManager.resetTable();
         dao.addBmiRecord(2,"test1",60, 160,1553518802960L);
         ArrayList<Forum> list=new ArrayList<Forum>();
-        list.add(new Forum(2,"test1",60, 160,1553518802960L));
+        //list.add(new Forum(2,"test1",60, 160,1553518802960L));
         System.out.println(dao.getBmiList().toString());
         System.out.println(list.toString());
         assertEquals(true,(list.toString().equals(dao.getBmiList().toString())));

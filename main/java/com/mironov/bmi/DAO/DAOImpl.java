@@ -41,8 +41,8 @@ public class DAOImpl implements DAO {
                         '}');
                         */
 
-                bmiList.add(new Forum(bmi , name ,weight , height , dateTimeStep ));
-            }
+                //add
+                }
         } catch (SQLException e ) {
             throw e;
         } finally {

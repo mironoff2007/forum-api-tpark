@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS forum;
+CREATE TABLE "forum"

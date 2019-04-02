@@ -33,8 +33,7 @@ public class GuiceServlet extends HttpServlet {
         this.service=service;
         try {
             TableManager.resetTable();
-            service.saveBmi("Vasja",178,65);
-            service.saveBmi("Petja",170,68);
+
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (SQLException e) {
