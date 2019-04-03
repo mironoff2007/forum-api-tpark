@@ -30,7 +30,12 @@
             <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
-
+        <!--Jersey-->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <version>2.6</version>
+        </dependency>
         <!--Guice Inject-->
         <dependency>
             <groupId>com.google.inject</groupId>
@@ -59,7 +64,7 @@
 
     </dependencies>
     <build>
-        <finalName>bmi-web</finalName>
+        <finalName>forum-api</finalName>
 
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
