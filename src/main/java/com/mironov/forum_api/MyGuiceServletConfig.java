@@ -8,7 +8,7 @@ import com.mironov.forum_api.DAO.DAO;
 import com.mironov.forum_api.DAO.DAOImpl;
 import com.mironov.forum_api.Service.Service;
 import com.mironov.forum_api.Service.ServiceImpl;
-
+import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
 
 public class MyGuiceServletConfig extends GuiceServletContextListener {
@@ -19,9 +19,13 @@ public class MyGuiceServletConfig extends GuiceServletContextListener {
         return Guice.createInjector(new ServletModule(){
             @Override
             protected void configureServlets(){
-                serve("/forum").with(ForumServlet.class);
+                //serve("/forum").with(ForumServlet.class);
                 bind(Service.class).to(ServiceImpl.class);
                 bind(DAO.class).to(DAOImpl.class);
+                serve("/*").with(GuiceContainer.class);
+                // Configuring Jersey via Guice:
+                bind(ForumServlet.class);
+
             }
 
 
