@@ -1,6 +1,6 @@
 package com.mironov.forum_api.DAO;
 
-import main.java.com.mironov.forum_api.Util.SQLFileReader;
+import com.mironov.forum_api.Util.SQLFileReader;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,17 +19,17 @@ public class TableManager {
 
     private static String drop="DROP TABLE IF EXISTS forum;";
 
-    public static void createTable() throws SQLException, IOException {
+    public static void createTable(String path) throws SQLException, IOException {
         Statement stmt = con.createStatement();
         // create a new table
-        crateTable=new SQLFileReader("src/main/webapp/resources/crate_table.sql").getAsString();
+        crateTable=new SQLFileReader(path+"crate_table.sql").getAsString();
 
         stmt.execute(crateTable);
     }
 
-    public static void populateTable() throws SQLException, IOException {
+    public static void populateTable(String path) throws SQLException, IOException {
 
-        populate=new SQLFileReader("src/main/webapp/resources/populate_table.sql").getAsString();
+        populate=new SQLFileReader(path+"populate_table.sql").getAsString();
 
         Statement stmt = con.createStatement();
         // populate table
@@ -44,7 +44,7 @@ public class TableManager {
 
     public static void resetTable() throws SQLException, IOException {
         dropTable();
-        createTable();
+        createTable("");
     }
 
 }

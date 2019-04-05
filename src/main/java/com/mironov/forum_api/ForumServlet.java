@@ -2,6 +2,7 @@ package com.mironov.forum_api;
 
 
 import com.mironov.forum_api.DAO.TableManager;
+import com.mironov.forum_api.Model.Forum;
 import com.mironov.forum_api.Service.Service;
 
 import com.google.gson.Gson;
@@ -9,6 +10,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +21,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
 
@@ -27,39 +30,51 @@ import java.util.stream.Collectors;
 public class ForumServlet extends HttpServlet {
 
     private final Service service;
+
     private final Gson gson = new Gson();
 
     private class JsonObject{
-        int height;
-        int weight;
-        String name;
+        private int posts;
+
+        private int threads;
+
+        private String slug;
+
+        private String title;
+
+        private String user;
     }
+
 
     @Inject
     public ForumServlet(Service service){
         this.service=service;
+
         try {
-            //TableManager.resetTable();
+            TableManager.createTable("D:\\GitRep\\forum-api-tpark\\src\\main\\webapp\\WEB-INF\\resources\\");
+            TableManager.populateTable("D:\\GitRep\\forum-api-tpark\\src\\main\\webapp\\WEB-INF\\resources\\");
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
-        /*
-        catch (SQLException e) {
-
-            e.printStackTrace();
-        } catch (IOException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
-        */
-
     }
-    @GET
-    @Path("/{slug}")
-    public Response getMsg(@PathParam("slug") String msg)
+
+
+    @GET//details about forum
+    @Path("/{slug}/details")
+    public String getMsg(@PathParam("slug") String slug)
     {
-        String output = "Message requested : " + msg;
-        //Simply return the parameter passed as message
-        return Response.status(200).entity(output).build();
+
+        Forum forum=null;
+        try {
+            forum = service.getForumBySlug(slug);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return gson.toJson(forum);
+        //Response.status(200).entity(output).build();
     }
 
     @GET
@@ -93,11 +108,9 @@ public class ForumServlet extends HttpServlet {
 
         //add forum_api and check
         try {
-            service.saveBmi(obj.name, obj.height, obj.weight);
+
         } catch (IllegalArgumentException e) {
             response.setStatus(415);
-        } catch (SQLException e) {
-
         }
     }
 

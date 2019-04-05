@@ -17,12 +17,12 @@ public class TableManagerTest {
     }
     @Test
     public void testBCreateTable() throws SQLException, IOException {
-        TableManager.createTable();
+        TableManager.createTable("");
     }
 
     @Test
     public void testCPopulateTable() throws SQLException, IOException {
-        TableManager.populateTable();
+        TableManager.populateTable("");
         TableManager.resetTable();
     }
 }

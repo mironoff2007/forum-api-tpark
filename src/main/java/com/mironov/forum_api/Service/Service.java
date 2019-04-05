@@ -11,4 +11,7 @@ public interface Service {
      List<Forum> getBmiList();
 
      void saveBmi(String name, int height, int weight) throws IllegalArgumentException, SQLException;
+
+     public Forum getForumBySlug(String slug) throws SQLException ;
+
 }

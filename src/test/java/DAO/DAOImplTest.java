@@ -39,20 +39,9 @@ public class DAOImplTest {
     @Test
     public void testGetBmiList() throws SQLException, IOException {
         TableManager.resetTable();
-        TableManager.populateTable();
-        System.out.println(dao.getBmiList().toString());
+        TableManager.populateTable("");
+        System.out.println(dao.getForumBySlug("slug1").toString());
         TableManager.resetTable();
     }
 
-    @Test
-    public void testAddBmi() throws SQLException, IOException {
-        TableManager.resetTable();
-        dao.addBmiRecord(2,"test1",60, 160,1553518802960L);
-        ArrayList<Forum> list=new ArrayList<Forum>();
-        //list.add(new Forum(2,"test1",60, 160,1553518802960L));
-        System.out.println(dao.getBmiList().toString());
-        System.out.println(list.toString());
-        assertEquals(true,(list.toString().equals(dao.getBmiList().toString())));
-        TableManager.resetTable();
-    }
 }

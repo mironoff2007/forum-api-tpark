@@ -1,4 +1,4 @@
-package main.java.com.mironov.forum_api.Util;
+package com.mironov.forum_api.Util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -18,6 +18,7 @@ public class SQLFileReader {
     }
 
     public String getAsString() throws IOException {
+
 
         br=new BufferedReader(new FileReader(fileName));
 

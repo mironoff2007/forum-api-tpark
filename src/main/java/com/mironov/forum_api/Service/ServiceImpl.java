@@ -32,8 +32,12 @@ public class ServiceImpl implements Service {
 
             float bmi= (float) (1000.0*weight/height/height);
 
-            dao.addBmiRecord(bmi, name, weight, height, dateTimeStep);
+
         }
+    }
+
+    public Forum getForumBySlug(String slug) throws SQLException {
+        return dao.getForumBySlug(slug);
     }
 
 

@@ -1,11 +1,11 @@
-package test.java.Service;
+package Service;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.mironov.forum_api.DAO.DAO;
-import com.mironov.forum_api.DAO.MemoryDAOImpl;
+import com.mironov.forum_api.DAO.DAOImpl;
 import com.mironov.forum_api.Service.Service;
 import com.mironov.forum_api.Service.ServiceImpl;
 import org.junit.*;
@@ -19,7 +19,7 @@ public class ServiceTest {
         @Override
         protected void configure() {
             bind(Service.class).to(ServiceImpl.class);
-            bind(DAO.class).to(MemoryDAOImpl.class);
+            bind(DAO.class).to(DAOImpl.class);
         }
     });
 

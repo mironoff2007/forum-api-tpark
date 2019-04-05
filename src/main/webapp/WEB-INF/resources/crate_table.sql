@@ -4,7 +4,9 @@ CREATE TABLE "forum" (
 
   posts int DEFAULT NULL,
 
-  slugs varchar DEFAULT NULL,
+  threads int DEFAULT NULL,
+
+  slug varchar DEFAULT NULL,
 
   title varchar DEFAULT NULL,
 

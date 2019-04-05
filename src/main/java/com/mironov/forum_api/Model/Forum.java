@@ -33,15 +33,18 @@ public class Forum {
 
     private int posts;
 
-    private String slugs;
+    private int threads;
+
+    private String slug;
 
     private String title;
 
     private String user;
 
-    public Forum(int posts, String slugs, String title, String user) {
+    public Forum(int posts, int threads, String slug, String title, String user) {
         this.posts = posts;
-        this.slugs = slugs;
+        this.threads=threads;
+        this.slug = slug;
         this.title = title;
         this.user = user;
     }
@@ -50,7 +53,8 @@ public class Forum {
     public String toString() {
         return "Forum{" +
                 "posts=" + posts +
-                ", slugs='" + slugs + '\'' +
+                ", threads=" + threads +
+                ", slug='" + slug + '\'' +
                 ", title='" + title + '\'' +
                 ", user='" + user + '\'' +
                 '}';
