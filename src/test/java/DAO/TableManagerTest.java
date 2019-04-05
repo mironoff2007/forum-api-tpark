@@ -17,12 +17,12 @@ public class TableManagerTest {
     }
     @Test
     public void testBCreateTable() throws SQLException, IOException {
-        TableManager.createTable("");
+        TableManager.createTable("src\\main\\webapp\\WEB-INF\\resources\\crate_table.sql");
     }
 
     @Test
     public void testCPopulateTable() throws SQLException, IOException {
-        TableManager.populateTable("");
+        TableManager.populateTable("populate_table.sql");
         TableManager.resetTable();
     }
 }

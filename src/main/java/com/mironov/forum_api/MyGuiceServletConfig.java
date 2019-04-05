@@ -10,6 +10,9 @@ import com.mironov.forum_api.Service.Service;
 import com.mironov.forum_api.Service.ServiceImpl;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class MyGuiceServletConfig extends GuiceServletContextListener {
 

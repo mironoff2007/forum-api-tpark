@@ -9,6 +9,8 @@ import java.sql.Statement;
 
 public class TableManager {
 
+    public static TableManager tb=new TableManager();
+
     private static final Connection con=ConnectionManager.getConnection();
 
     private static String crateTable;
@@ -22,14 +24,14 @@ public class TableManager {
     public static void createTable(String path) throws SQLException, IOException {
         Statement stmt = con.createStatement();
         // create a new table
-        crateTable=new SQLFileReader(path+"crate_table.sql").getAsString();
+        crateTable=new SQLFileReader(path).getAsString();
 
         stmt.execute(crateTable);
     }
 
     public static void populateTable(String path) throws SQLException, IOException {
 
-        populate=new SQLFileReader(path+"populate_table.sql").getAsString();
+        populate=new SQLFileReader(path).getAsString();
 
         Statement stmt = con.createStatement();
         // populate table

@@ -11,6 +11,7 @@ import com.google.inject.Singleton;
 
 
 import javax.annotation.PostConstruct;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,9 +52,10 @@ public class ForumServlet extends HttpServlet {
         this.service=service;
 
         try {
-            TableManager.createTable("D:\\GitRep\\forum-api-tpark\\src\\main\\webapp\\WEB-INF\\resources\\");
-            TableManager.populateTable("D:\\GitRep\\forum-api-tpark\\src\\main\\webapp\\WEB-INF\\resources\\");
-        } catch (IllegalArgumentException e) {
+            TableManager.createTable("src\\main\\webapp\\WEB-INF\\resources\\crate_table.sql");
+
+            TableManager.populateTable("D:\\GitRep\\forum-api-tpark\\src\\main\\webapp\\WEB-INF\\resources\\populate_table.sql");
+            } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
         catch (Exception e) {
